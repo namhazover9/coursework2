@@ -26,4 +26,7 @@ public interface HikeDao {
 
     @Query("DELETE FROM hikes")
     void deleteAllHikes();
+
+    @Query("SELECT * FROM hikes WHERE hike_name LIKE :name")
+    List<Hike> searchHikesByName(String name);
 }

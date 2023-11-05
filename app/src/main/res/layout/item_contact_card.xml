@@ -64,13 +64,13 @@
             android:padding="4dp">
 
             <Button
-                android:id="@+id/moreBtn"
+                android:id="@+id/detailBtn"
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:text="More"
+                android:text="Detail"
                  />
 
             <Button

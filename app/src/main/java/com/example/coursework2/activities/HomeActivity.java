@@ -25,6 +25,7 @@ public class HomeActivity extends AppCompatActivity implements ContactAdapter.On
     private ContactAdapter adapter;
     List<Hike> hikes;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +41,14 @@ public class HomeActivity extends AppCompatActivity implements ContactAdapter.On
         adapter = new ContactAdapter(hikes, this);
         recyclerView.setAdapter(adapter);
 
+        // For Delete All Hikes
+        Button deleteAllHikes = findViewById(R.id.deleteAllBtn);
+        deleteAllHikes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {onDeleteAllClick();}
+        });
 
+        // For Navigate Tab
         Button add = findViewById(R.id.add_screen2);
         Button home = findViewById(R.id.home_screen2);
         Button search = findViewById(R.id.search_screen2);
@@ -54,21 +62,34 @@ public class HomeActivity extends AppCompatActivity implements ContactAdapter.On
         });
         search.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {viewSearch();
-            }
+            public void onClick(View view) {viewSearch();}
         });
     }
 
     @Override
     public void onDeleteClick(Hike hike) {
         new AlertDialog.Builder(this)
-                .setTitle("Delete Contact")
+                .setTitle("Delete this Hike")
                 .setMessage("Are you sure you want to delete this hike?")
                 .setPositiveButton("Delete", (dialog, which) -> {
                     // Remove from the database
                     appDatabase.hikeDao().deleteHike(hike);
                     // Update the list
                     hikes.remove(hike);
+                    adapter.notifyDataSetChanged();
+                })
+                .setNegativeButton("Cancel", null).show();
+    }
+
+    public void onDeleteAllClick() {
+        new AlertDialog.Builder(this)
+                .setTitle("Delete All Hikes")
+                .setMessage("Are you sure you want to delete all hikes?")
+                .setPositiveButton("Delete", (dialog, which) -> {
+                    // Remove from the database
+                    appDatabase.hikeDao().deleteAllHikes();
+                    // Update the list
+                    hikes.clear();
                     adapter.notifyDataSetChanged();
                 })
                 .setNegativeButton("Cancel", null).show();
