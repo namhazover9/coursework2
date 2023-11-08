@@ -55,12 +55,10 @@ public class MainActivity extends AppCompatActivity {
             ((MainActivity) getActivity()).updateDOB(dob);
         }
     }
-
     public void updateDOB(LocalDate dob) {
         TextView dobControl = findViewById(R.id.date_control);
         dobControl.setText(dob.toString());
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,15 +66,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         appDatabase = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "sqlite_example_db")
-                .allowMainThreadQueries() // For simplicity, don't use this in production
-                .build();
+                .allowMainThreadQueries().build();
+
 
         // For Spinner
         spinner = findViewById(R.id.spinner);
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, levelStatus);
         spinner.setAdapter(dataAdapter); // Connect adapter to spinner
 
-
+        // For Date Picker
         dateControl = findViewById(R.id.date_control);
         dateControl.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // For Add Button
         Button addBtn = findViewById(R.id.addBtn);
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // For Navigation
         Button add = findViewById(R.id.add_screen);
         Button home = findViewById(R.id.home_screen);
         Button search = findViewById(R.id.search_screen);
@@ -110,7 +110,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {viewSearch();
             }
         });
-
     }
 
     private void saveDetails() {
@@ -131,28 +130,34 @@ public class MainActivity extends AppCompatActivity {
         RadioButton radioButton = findViewById(selectedRadioButtonId);
         String setRadioParkingText = radioButton.getText().toString();
 
-
+        // For Set Text
         String name = nameTxt.getText().toString();
         String location = locationTxt.getText().toString();
         String date = dateControl.getText().toString();
         float length = Float.parseFloat(lengthTxt.getText().toString());
         String description = descTxt.getText().toString();
 
-        Hike hike = new Hike();
-        hike.hike_name = name;
-        hike.location = location;
-        hike.date = date;
-        hike.parking = setRadioParkingText;
-        hike.hike_length = length;
-        hike.hike_level = selectedSpinnerLevel;
-        hike.description = description;
+        if(name.isEmpty() || location.isEmpty()|| date.isEmpty() || length == 0 || description.isEmpty()){
+            Toast.makeText(this, "You need to fill all the fields. ",
+                    Toast.LENGTH_LONG
+            ).show();
+        } else {
+            Hike hike = new Hike();
+            hike.hike_name = name;
+            hike.location = location;
+            hike.date = date;
+            hike.parking = setRadioParkingText;
+            hike.hike_length = length;
+            hike.hike_level = selectedSpinnerLevel;
+            hike.description = description;
 
+            long hikeId = appDatabase.hikeDao().insertHike(hike);
 
-        long hikeId = appDatabase.hikeDao().insertHike(hike);
+            Toast.makeText(this, "Hike has been created with id: " + hikeId,
+                    Toast.LENGTH_LONG
+            ).show();
+        }
 
-        Toast.makeText(this, "Hike has been created with id: " + hikeId,
-                Toast.LENGTH_LONG
-        ).show();
     }
 
     private void viewAdd() {

@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.coursework2.R;
 import com.example.coursework2.activities.DetailActivity;
-import com.example.coursework2.activities.HomeActivity;
 import com.example.coursework2.models.Hike;
 
 import java.util.List;
@@ -23,17 +22,22 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
 
     private List<Hike> hikes;
     private OnDeleteClickListener onDeleteClickListener;
-    Context context;
+    private OnDetailClickListener onDetailClickListener;
+
 
     public interface OnDeleteClickListener {
         void onDeleteClick(Hike hike);
     }
 
+    public interface OnDetailClickListener {
+        void onDetailClick(Hike hike);
+    }
 
-    public ContactAdapter(List<Hike> hikes, OnDeleteClickListener onDeleteClickListener) {
 
+    public ContactAdapter(List<Hike> hikes, OnDeleteClickListener onDeleteClickListener, OnDetailClickListener onDetailClickListener) {
         this.hikes = hikes;
         this.onDeleteClickListener = onDeleteClickListener;
+        this.onDetailClickListener = onDetailClickListener;
     }
 
     @NonNull
@@ -56,22 +60,12 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
             }
         });
 
-        holder.detailHike.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Hike hike = hikes.get(position);
-                Intent intent = new Intent(context, DetailActivity.class);
-                intent.putExtra("hikeName", hike.hike_name);
-                intent.putExtra("hikeLocation", hike.location);
-                intent.putExtra("hikeDate", hike.date);
-//                intent.putExtra("hikeParking", hike.parking);
-//                intent.putExtra("hikeLength", hike.hike_length);
-//                intent.putExtra("hikeLevel", hike.hike_level);
-//                intent.putExtra("hikeDescription", hike.description);
-                // Thêm các thông tin khác của Hike nếu cần
-                context.startActivity(intent);
-            }
+        holder.detailHike.setOnClickListener(v -> {
+                if (onDetailClickListener != null) {
+                    onDetailClickListener.onDetailClick(hikes.get(position));
+                }
         });
+
     }
 
     @Override

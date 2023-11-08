@@ -1,10 +1,12 @@
 package com.example.coursework2.dao;
 
+
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
+
 
 import com.example.coursework2.models.Hike;
 
@@ -27,6 +29,9 @@ public interface HikeDao {
     @Query("DELETE FROM hikes")
     void deleteAllHikes();
 
-    @Query("SELECT * FROM hikes WHERE hike_name LIKE :name")
+    @Query("SELECT * FROM hikes WHERE hike_id = :hikeId")
+    Hike getHikeById(long hikeId);
+
+    @Query("SELECT * FROM hikes WHERE hike_name LIKE '%' || :name || '%'")
     List<Hike> searchHikesByName(String name);
 }

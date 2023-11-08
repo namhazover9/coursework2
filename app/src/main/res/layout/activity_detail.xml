@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".activities.DetailActivity">
 
+
     <TextView
         android:id="@+id/nameDetail"
         android:layout_width="336dp"
@@ -93,140 +94,139 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dateDetail_text" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/parkingDetail_text"-->
-<!--        android:layout_width="140dp"-->
-<!--        android:layout_height="30dp"-->
-<!--        android:layout_marginStart="36dp"-->
-<!--        android:layout_marginTop="20dp"-->
-<!--        android:text="Parking available:"-->
-<!--        android:textColor="@color/black"-->
-<!--        android:textSize="16dp"-->
-<!--        android:textStyle="bold"-->
-<!--        app:layout_constraintEnd_toStartOf="@+id/rgDetail_parking"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/dateDetail_control" />-->
+        <TextView
+            android:id="@+id/parkingDetail_text"
+            android:layout_width="140dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="20dp"
+            android:text="Parking available:"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/rgDetail_parking"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dateDetail_control" />
 
 
-<!--    <RadioGroup-->
-<!--        android:id="@+id/rgDetail_parking"-->
-<!--        android:layout_width="168dp"-->
-<!--        android:layout_height="30dp"-->
-<!--        android:layout_marginTop="20dp"-->
-<!--        android:layout_marginEnd="67dp"-->
-<!--        android:orientation="horizontal"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/parkingDetail_text"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/dateDetail_control">-->
+        <RadioGroup
+            android:id="@+id/rgDetail_parking"
+            android:layout_width="168dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="67dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/parkingDetail_text"
+            app:layout_constraintTop_toBottomOf="@+id/dateDetail_control">
 
-<!--        <RadioButton-->
-<!--            android:id="@+id/rbDetail_yes"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Yes" />-->
+            <RadioButton
+                android:id="@+id/rbDetail_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yes" />
 
-<!--        <RadioButton-->
-<!--            android:id="@+id/rbDetail_no"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginLeft="20dp"-->
-<!--            android:text="No" />-->
+            <RadioButton
+                android:id="@+id/rbDetail_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="No" />
 
-<!--    </RadioGroup>-->
+        </RadioGroup>
 
-<!--    <TextView-->
-<!--        android:id="@+id/lengthDetail"-->
-<!--        android:layout_width="140dp"-->
-<!--        android:layout_height="30dp"-->
-<!--        android:layout_marginStart="36dp"-->
-<!--        android:layout_marginTop="20dp"-->
-<!--        android:layout_marginEnd="3dp"-->
-<!--        android:text="Length of the hike: "-->
-<!--        android:textColor="@color/black"-->
-<!--        android:textSize="16dp"-->
-<!--        android:textStyle="bold"-->
-<!--        app:layout_constraintEnd_toStartOf="@+id/lengthDetail_text"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/rgDetail_parking" />-->
+        <TextView
+            android:id="@+id/lengthDetail"
+            android:layout_width="140dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="3dp"
+            android:text="Length of the hike: "
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/lengthDetail_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rgDetail_parking" />
 
-<!--    <EditText-->
-<!--        android:id="@+id/lengthDetail_text"-->
-<!--        android:layout_width="194dp"-->
-<!--        android:layout_height="40dp"-->
-<!--        android:layout_marginTop="12dp"-->
-<!--        android:layout_marginLeft="4dp"-->
-<!--        android:layout_marginEnd="37dp"-->
-<!--        android:ems="10"-->
-<!--        android:inputType="number"-->
-<!--        android:textSize="16dp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/lengthDetail"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/rgDetail_parking" />-->
+        <EditText
+            android:id="@+id/lengthDetail_text"
+            android:layout_width="194dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginEnd="37dp"
+            android:ems="10"
+            android:inputType="number"
+            android:textSize="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/lengthDetail"
+            app:layout_constraintTop_toBottomOf="@id/rgDetail_parking" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/levelDetail"-->
-<!--        android:layout_width="140dp"-->
-<!--        android:layout_height="30dp"-->
-<!--        android:layout_marginStart="36dp"-->
-<!--        android:layout_marginTop="20dp"-->
-<!--        android:text="Difficulty level: "-->
-<!--        android:textColor="@color/black"-->
-<!--        android:textSize="16dp"-->
-<!--        android:textStyle="bold"-->
-<!--        app:layout_constraintEnd_toStartOf="@+id/spinnerDetail"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/lengthDetail" />-->
+        <TextView
+            android:id="@+id/levelDetail"
+            android:layout_width="140dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="20dp"
+            android:text="Difficulty level: "
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerDetail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lengthDetail" />
 
-<!--    <Spinner-->
-<!--        android:id="@+id/spinnerDetail"-->
-<!--        android:layout_width="160dp"-->
-<!--        android:layout_height="30dp"-->
-<!--        android:layout_marginTop="18dp"-->
-<!--        android:layout_marginEnd="75dp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/levelDetail"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/lengthDetail_text" />-->
+        <Spinner
+            android:id="@+id/spinnerDetail"
+            android:layout_width="160dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="75dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/levelDetail"
+            app:layout_constraintTop_toBottomOf="@+id/lengthDetail_text" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/descriptionDetail"-->
-<!--        android:layout_width="140dp"-->
-<!--        android:layout_height="30dp"-->
-<!--        android:layout_marginStart="36dp"-->
-<!--        android:layout_marginTop="20dp"-->
-<!--        android:layout_marginEnd="235dp"-->
-<!--        android:text="Description: "-->
-<!--        android:textColor="@color/black"-->
-<!--        android:textSize="16dp"-->
-<!--        android:textStyle="bold"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/levelDetail" />-->
+        <TextView
+            android:id="@+id/descriptionDetail"
+            android:layout_width="140dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="235dp"
+            android:text="Description: "
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/levelDetail" />
 
-<!--    <EditText-->
-<!--        android:id="@+id/descDetail_text"-->
-<!--        android:layout_width="336dp"-->
-<!--        android:layout_height="60dp"-->
-<!--        android:layout_marginStart="36dp"-->
-<!--        android:layout_marginTop="4dp"-->
-<!--        android:layout_marginEnd="39dp"-->
-<!--        android:ems="10"-->
-<!--        android:inputType="text"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/descriptionDetail" />-->
+        <EditText
+            android:id="@+id/descDetail_text"
+            android:layout_width="336dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="39dp"
+            android:ems="10"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/descriptionDetail" />
 
-<!--    <Button-->
-<!--        android:id="@+id/addBtnDetail"-->
-<!--        android:layout_width="336dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="20dp"-->
-<!--        android:text="Update Hike"-->
-<!--        android:textColor="@color/black"-->
-<!--        android:textStyle="bold"-->
-<!--        app:cornerRadius="20dp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/descDetail_text" />-->
-
+        <Button
+            android:id="@+id/editBtnDetail"
+            android:layout_width="336dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Update Hike"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:cornerRadius="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/descDetail_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -18,13 +19,12 @@ import com.example.coursework2.models.Hike;
 
 import java.util.List;
 
-public class HomeActivity extends AppCompatActivity implements ContactAdapter.OnDeleteClickListener{
+public class HomeActivity extends AppCompatActivity implements ContactAdapter.OnDeleteClickListener, ContactAdapter.OnDetailClickListener{
 
     private AppDatabase appDatabase;
     private RecyclerView recyclerView;
     private ContactAdapter adapter;
     List<Hike> hikes;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class HomeActivity extends AppCompatActivity implements ContactAdapter.On
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         hikes = appDatabase.hikeDao().getAllHikes();
-        adapter = new ContactAdapter(hikes, this);
+        adapter = new ContactAdapter(hikes, this, this);
         recyclerView.setAdapter(adapter);
 
         // For Delete All Hikes
@@ -79,6 +79,20 @@ public class HomeActivity extends AppCompatActivity implements ContactAdapter.On
                     adapter.notifyDataSetChanged();
                 })
                 .setNegativeButton("Cancel", null).show();
+    }
+
+    @Override
+    public void onDetailClick(Hike hike) {
+        Intent intent = new Intent(HomeActivity.this, DetailActivity.class);
+        intent.putExtra("hikeId", hike.hike_id);
+        intent.putExtra("hikeName", hike.hike_name);
+        intent.putExtra("hikeLocation", hike.location);
+        intent.putExtra("hikeDate", hike.date);
+        intent.putExtra("hikeParking", hike.parking);
+        intent.putExtra("hikeLength", hike.hike_length);
+        intent.putExtra("hikeLevel", hike.hike_level);
+        intent.putExtra("hikeDescription", hike.description);
+        startActivity(intent);
     }
 
     public void onDeleteAllClick() {
